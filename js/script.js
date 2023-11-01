@@ -27,6 +27,11 @@ export const music = [
 refs.btns.addEventListener("click", click);
 refs.audio.addEventListener("timeupdate", updateTime);
 refs.audio.addEventListener("loadeddata", updateAudio);
+refs.crossbar.addEventListener("click", changeCurrentTime);
+
+function changeCurrentTime(e){
+console.dir(refs.crossbar)
+}
 
 
 function click(e) {
