@@ -1,5 +1,7 @@
 import { refs } from "./refs.js";
 import { music } from "./script.js";
+import { setTime, setProgres } from "./time.js";
+import { startAudio } from "./startAudio.js";
 
 export function next(e) {
     if (refs.audio.classList.contains("active")) {
@@ -7,7 +9,6 @@ export function next(e) {
         refs.audio.classList.remove("active");
         e.currentTarget.querySelector(".btn-js").textContent = "Play";
     }
-
     for (let i = 0; i < music.length; i++) {
         if (refs.name.textContent == music[i].name) {
             if (i + 1 != music.length) {
@@ -44,4 +45,11 @@ export function prev(e) {
             refs.name.textContent = music[i - 1].name;
         }
     }
+}
+
+export function updateAudio(e){
+    setProgres();
+    const btn = e.target.parentNode.querySelector(".btn-js");
+    startAudio(btn);
+    setTime(e.target.duration, refs.finish);
 }

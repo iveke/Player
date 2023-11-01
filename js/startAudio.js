@@ -1,13 +1,13 @@
 import { refs } from "./refs.js";
 
-export function startAudio(e){
+export function startAudio(btn){
     if (!refs.audio.classList.contains("active")) {
       refs.audio.classList.add("active");
-      e.target.textContent = "Pause"
+      btn.textContent = "Pause";
       refs.audio.play();
       return;
     }
     refs.audio.classList.remove("active");
     refs.audio.pause();
-    e.target.textContent = "Play";
+    btn.textContent = "Play";
   }

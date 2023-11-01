@@ -1,7 +1,7 @@
 import { refs } from "./refs.js";
 import { startAudio } from "./startAudio.js";
-import { setTime, updateTime } from "./time.js";
-import { next, prev } from "./changeAudio.js";
+import {updateTime} from "./time.js"
+import { next, prev, updateAudio } from "./changeAudio.js";
 
 export const music = [
   {
@@ -26,14 +26,12 @@ export const music = [
 
 refs.btns.addEventListener("click", click);
 refs.audio.addEventListener("timeupdate", updateTime);
-refs.audio.addEventListener("loadeddata", (e)=>{
-  setTime(e.target.duration, refs.finish);
-});
+refs.audio.addEventListener("loadeddata", updateAudio);
 
 
 function click(e) {
   if (e.target.classList.contains("btn-js")) {
-    return startAudio(e);
+    return startAudio(e.target);
   }
   if (e.target.classList.contains("next")) {
     return next(e);
