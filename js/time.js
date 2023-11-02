@@ -11,8 +11,8 @@ export function setProgres() {
 }
 
 export function setTime(time, elem) {
-    const second = String(Math.floor(time % 60)).padStart(2, "0");
-    const minute = String(Math.floor(time / 60), -1);
+    const second = String(Math.floor(time % 60, 1)).padStart(2, "0");
+    const minute = String(Math.floor(time / 60, -1));
     elem.textContent = `${minute}:${second}`;
 }
 

@@ -1,6 +1,6 @@
 import { refs } from "./refs.js";
 import { startAudio } from "./startAudio.js";
-import {updateTime} from "./time.js"
+import {setProgres, updateTime} from "./time.js"
 import { next, prev, updateAudio } from "./changeAudio.js";
 
 export const music = [
@@ -30,7 +30,18 @@ refs.audio.addEventListener("loadeddata", updateAudio);
 refs.crossbar.addEventListener("click", changeCurrentTime);
 
 function changeCurrentTime(e){
-console.dir(refs.crossbar)
+  if(!refs.audio.classList.contains("active")){
+    refs.audio.classList.add("active");
+    refs.btns.querySelector(".btn-js").textContent = "Pause";
+    refs.audio.play();
+  }
+const left = e.target.getBoundingClientRect().left;
+const x = e.clientX;
+const width = x - left;
+refs.progress.style.width = `${width}px`
+const oneSecondInPx = refs.crossbar.clientWidth / refs.audio.duration;
+const time = width / oneSecondInPx;
+refs.audio.currentTime = time;
 }
 
 
