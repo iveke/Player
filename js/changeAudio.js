@@ -3,11 +3,10 @@ import { music } from "./script.js";
 import { setTime, setProgres } from "./time.js";
 import { startAudio } from "./startAudio.js";
 
-export function next(e) {
+export function next() {
     if (refs.audio.classList.contains("active")) {
         refs.audio.pause();
         refs.audio.classList.remove("active");
-        e.currentTarget.querySelector(".btn-js").textContent = "Play";
     }
     for (let i = 0; i < music.length; i++) {
         if (refs.name.textContent == music[i].name) {
@@ -24,11 +23,10 @@ export function next(e) {
     }
 }
 
-export function prev(e) {
+export function prev() {
     if (refs.audio.classList.contains("active")) {
         refs.audio.pause();
         refs.audio.classList.remove("active");
-        e.currentTarget.querySelector(".btn-js").textContent = "Play";
     }
 
     for (let i = 0; i < music.length; i++) {

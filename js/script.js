@@ -28,6 +28,14 @@ refs.btns.addEventListener("click", click);
 refs.audio.addEventListener("timeupdate", updateTime);
 refs.audio.addEventListener("loadeddata", updateAudio);
 refs.crossbar.addEventListener("click", changeCurrentTime);
+document.addEventListener("keyup", (e)=>{
+  if(e.code == "ArrowRight"){
+    return next();
+  }
+  if(e.code == "ArrowLeft"){
+    return prev();
+  }
+})
 
 function changeCurrentTime(e){
   if(!refs.audio.classList.contains("active")){
@@ -50,10 +58,10 @@ function click(e) {
     return startAudio(e.target);
   }
   if (e.target.classList.contains("next")) {
-    return next(e);
+    return next();
   }
   if (e.target.classList.contains("prev")) {
-    return prev(e);
+    return prev();
   }
   return;
 }

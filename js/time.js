@@ -1,4 +1,5 @@
 import { refs } from "./refs.js";
+import { next } from "./changeAudio.js";
 
 export function setProgres() {
     const time = refs.audio.currentTime;
@@ -21,6 +22,7 @@ export function updateTime(e) {
         refs.audio.classList.remove("active");
         e.target.parentNode.querySelector(".btn-js").textContent = "Play";
         refs.audio.pause();
+        next()
     }
     setProgres();
 }
