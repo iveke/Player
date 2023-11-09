@@ -1,9 +1,9 @@
 import { refs } from "./refs.js";
 import { startAudio } from "./startAudio.js";
-import {setProgres, updateTime} from "./time.js"
+import {  updateTime, changeCurrentTime } from "./time.js";
 import { next, prev, updateAudio } from "./changeAudio.js";
 
-export const music = [
+export const musics = [
   {
     id: 1,
     image: "./image/dobrij-ranok-chorna-700x700.jpg",
@@ -24,43 +24,67 @@ export const music = [
   },
 ];
 
+document.addEventListener("keyup", (e) => {
+  if (e.code == "ArrowRight") {
+    return next();
+  }
+  if (e.code == "ArrowLeft") {
+    return prev();
+  }
+});
+document.addEventListener("load", addMusicInList(musics));
 refs.btns.addEventListener("click", click);
 refs.audio.addEventListener("timeupdate", updateTime);
 refs.audio.addEventListener("loadeddata", updateAudio);
 refs.crossbar.addEventListener("click", changeCurrentTime);
-document.addEventListener("keyup", (e)=>{
-  if(e.code == "ArrowRight"){
-    return next();
-  }
-  if(e.code == "ArrowLeft"){
-    return prev();
-  }
-})
+refs.list.addEventListener("click", chooseMusic);
 
-function changeCurrentTime(e){
-  if(!refs.audio.classList.contains("active")){
-    refs.audio.classList.add("active");
-    refs.btns.querySelector(".btn-js").textContent = "Pause";
-    refs.audio.play();
+
+function chooseMusic(e){
+  const elem= e.target;
+if(!elem.classList.contains("music")){
+  return;
+}
+if(refs.name.textContent == elem.querySelector(".nameList").textContent){
+  return;
+}
+if (refs.audio.classList.contains("active")) {
+  refs.audio.pause();
+  refs.audio.classList.remove("active");
+}
+for(let i = 0; i< musics.length; i++){
+  if(musics[i].id == elem.id){
+    refs.audio.src = musics[i].src;
+    refs.image.src = musics[i].image;
+    refs.name.textContent = musics[i].name;
+    break;
   }
-const left = e.target.getBoundingClientRect().left;
-const x = e.clientX;
-const width = x - left;
-refs.progress.style.width = `${width}px`
-const oneSecondInPx = refs.crossbar.clientWidth / refs.audio.duration;
-const time = width / oneSecondInPx;
-refs.audio.currentTime = time;
+}
+}
+
+function addMusicInList(musics){
+const musicList = [];
+musics.forEach(elem => {
+  const music = `<li class="music" id="${elem.id}">
+<img class="imgList" src="${elem.image}" alt="">
+ <p class="nameList">${elem.name}</p>
+ </li>`;
+ musicList.push(music);
+});
+  refs.list.insertAdjacentHTML("beforeend", musicList);
 }
 
 
+
 function click(e) {
-  if (e.target.classList.contains("btn-js")) {
-    return startAudio(e.target);
+  const elem = e.target;
+  if (elem.classList.contains("btn-js")) {
+    return startAudio(elem);
   }
-  if (e.target.classList.contains("next")) {
+  if (elem.classList.contains("next")) {
     return next();
   }
-  if (e.target.classList.contains("prev")) {
+  if (elem.classList.contains("prev")) {
     return prev();
   }
   return;

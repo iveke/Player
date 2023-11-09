@@ -27,3 +27,17 @@ export function updateTime(e) {
     setProgres();
 }
 
+export function changeCurrentTime(e) {
+    if (!refs.audio.classList.contains("active")) {
+      refs.audio.classList.add("active");
+      refs.btns.querySelector(".btn-js").textContent = "Pause";
+      refs.audio.play();
+    }
+    const left = e.target.getBoundingClientRect().left;
+    const x = e.clientX;
+    const width = x - left;
+    refs.progress.style.width = `${width}px`;
+    const oneSecondInPx = refs.crossbar.clientWidth / refs.audio.duration;
+    const time = width / oneSecondInPx;
+    refs.audio.currentTime = time;
+  }

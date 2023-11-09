@@ -6,5 +6,6 @@ export const refs = {
     start: document.querySelector(".start"),
     finish:document.querySelector(".finish"),
     name: document.querySelector(".name"),
-    image: document.querySelector(".img")
+    image: document.querySelector(".img"),
+    list: document.querySelector(".list")
 }
