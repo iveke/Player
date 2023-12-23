@@ -38,6 +38,19 @@ refs.audio.addEventListener("timeupdate", updateTime);
 refs.audio.addEventListener("loadeddata", updateAudio);
 refs.crossbar.addEventListener("click", changeCurrentTime);
 refs.list.addEventListener("click", chooseMusic);
+refs.searchBtn.addEventListener("click", searchMusic);
+
+
+function searchMusic(){
+  const value = refs.search.value;
+  console.log(value);
+  musics.forEach(elem => {
+    if(elem.name == value){
+      return;
+    }
+
+  })
+}
 
 
 function chooseMusic(e){
@@ -48,6 +61,7 @@ if(!elem.classList.contains("music")){
 if(refs.name.textContent == elem.querySelector(".nameList").textContent){
   return;
 }
+// elem.classList.add("activeMusic");
 if (refs.audio.classList.contains("active")) {
   refs.audio.pause();
   refs.audio.classList.remove("active");
@@ -71,7 +85,7 @@ musics.forEach(elem => {
  </li>`;
  musicList.push(music);
 });
-  refs.list.insertAdjacentHTML("beforeend", musicList);
+  refs.list.insertAdjacentHTML("beforeend", musicList.join(""));
 }
 
 

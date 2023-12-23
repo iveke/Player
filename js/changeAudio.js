@@ -44,10 +44,16 @@ export function prev() {
         }
     }
 }
-
+//доробити функціонаю коли якась музика активна щоб і в плейлисту цей трек позначався як активний типу іншим кольором
 export function updateAudio(e){
     setProgres();
     const btn = e.target.parentNode.querySelector(".btn-js");
     startAudio(btn);
     setTime(e.target.duration, refs.finish);
+musics.forEach(elem => {
+if(elem.src == e.target.getAttribute("src")){
+const musiclist = refs.list.getElementById(`${elem.id}`);
+console.log(musiclist);
+}
+})
 }

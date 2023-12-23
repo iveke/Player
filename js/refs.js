@@ -7,5 +7,7 @@ export const refs = {
     finish:document.querySelector(".finish"),
     name: document.querySelector(".name"),
     image: document.querySelector(".img"),
-    list: document.querySelector(".list")
+    list: document.querySelector(".playlist"),
+    search: document.querySelector("#inputSearch"),
+    searchBtn: document.querySelector(".search")
 }
