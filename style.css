@@ -3,9 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
-*:hover{
+
+*:hover {
     transition: all 300ms;
 }
+
 .wrapper {
     width: 700px;
     margin: 0 auto;
@@ -13,65 +15,78 @@
     display: flex;
     flex-direction: column;
 }
-.header{
-    width: 700px;;
+
+.header {
+    width: 700px;
     height: 50px;
     display: flex;
     align-items: center;
     background-color: #131316;
+    position: fixed;
+    top: 0;
 }
-.navbar{
+
+.navbar {
     width: 300px;
     height: 40px;
-    margin-left:30px;
+    margin-left: 30px;
 }
-.navigation{
+
+.navigation {
     display: flex;
     gap: 10px;
     color: #fff;
 }
-.navigation li{
+
+.navigation li {
     text-align: center;
-    list-style:none;
+    list-style: none;
     width: 70px;
     height: 40px;
     padding: 10px 0;
 }
-.navigation li:hover{
+
+.navigation li:hover {
     /* border: 1px solid #fff; */
-background-color: #262622;
+    background-color: #262622;
 }
-.header_search{
+
+.header_search {
     width: 220px;
     margin: 0 auto;
 }
-.header_input{
+
+.header_input {
     width: 150px;
     height: 20px;
 }
-.search{
+
+.search {
     width: 50px;
 }
-.account{
+
+.account {
     width: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #fff;
 }
-.logo{
+
+.logo {
     width: 25px;
     height: 25px;
     background-color: #fff;
     border-radius: 50%;
 }
-.username{
+
+.username {
     text-align: center;
     width: 80px;
-    
+
 }
 
-.main{
+.main {
     display: flex;
 }
 
@@ -127,7 +142,8 @@ background-color: #262622;
     display: flex;
     align-items: center;
 }
-.buttons{
+
+.buttons {
     margin: 0 auto;
     width: 300px;
     height: 70px;
@@ -136,7 +152,8 @@ background-color: #262622;
     align-items: center;
     background-color: #131316;
 }
-.button{
+
+.button {
     width: 50px;
     height: 50px;
     color: #fff;
@@ -144,13 +161,16 @@ background-color: #262622;
     border: 2px solid black;
     font-weight: bold;
 }
-.button:hover{
+
+.button:hover {
     background-color: #262622;
 }
-.btnSlide:hover{
+
+.btnSlide:hover {
     background-color: #262622;
 }
-.btnSlide{
+
+.btnSlide {
     width: 80px;
     height: 30px;
     color: #fff;
@@ -174,12 +194,14 @@ p {
     margin: 0 5px;
     font-size: 15px;
 }
-.player{
+
+.player {
     width: 50%;
     height: 500px;
     background-color: #131316;
 }
-.card{
+
+.card {
     color: #fff;
     margin: 0 auto;
     height: 450px;
@@ -189,23 +211,26 @@ p {
     overflow: hidden;
 }
 
-.list{
-padding: 10px 0;
-background-color: #131316;
-height: 500px;
-width:50%;
-color: #fff;
-display: flex;
-flex-direction: column;
-align-items: center;
+.list {
+    padding: 10px 0;
+    background-color: #131316;
+    height: 500px;
+    width: 50%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.playlist{
+
+.playlist {
     width: 100%;
 }
-.activeMusic{
+
+.activeMusic {
     background-color: #262622;
 }
-.music{
+
+.music {
     list-style: none;
     display: flex;
     align-items: center;
@@ -214,18 +239,21 @@ align-items: center;
     padding: 0 10px;
     user-select: none;
 }
-.imgList{
+
+.imgList {
     width: 30px;
     height: 30px;
     pointer-events: none;
 }
-.nameList{
+
+.nameList {
     font-size: 16px;
     /* font-weight: bold; */
     margin-left: 15px;
     width: 100%;
     pointer-events: none;
 }
-.music:hover{
+
+.music:hover {
     background-color: #262622;
 }
