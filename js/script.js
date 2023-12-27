@@ -1,6 +1,6 @@
 import { refs } from "./refs.js";
 import { startAudio } from "./startAudio.js";
-import {  updateTime, changeCurrentTime } from "./time.js";
+import { updateTime, changeCurrentTime } from "./time.js";
 import { next, prev, updateAudio } from "./changeAudio.js";
 
 export const musics = [
@@ -41,11 +41,11 @@ refs.list.addEventListener("click", chooseMusic);
 refs.searchBtn.addEventListener("click", searchMusic);
 
 
-function searchMusic(){
+function searchMusic() {
   const value = refs.search.value;
   console.log(value);
   musics.forEach(elem => {
-    if(elem.name == value){
+    if (elem.name == value) {
       return;
     }
 
@@ -53,38 +53,38 @@ function searchMusic(){
 }
 
 
-function chooseMusic(e){
-  const elem= e.target;
-if(!elem.classList.contains("music")){
-  return;
-}
-if(refs.name.textContent == elem.querySelector(".nameList").textContent){
-  return;
-}
-// elem.classList.add("activeMusic");
-if (refs.audio.classList.contains("active")) {
-  refs.audio.pause();
-  refs.audio.classList.remove("active");
-}
-for(let i = 0; i< musics.length; i++){
-  if(musics[i].id == elem.id){
-    refs.audio.src = musics[i].src;
-    refs.image.src = musics[i].image;
-    refs.name.textContent = musics[i].name;
-    break;
+function chooseMusic(e) {
+  const elem = e.target;
+  if (!elem.classList.contains("music")) {
+    return;
+  }
+  if (refs.audio.dataset.id == elem.id) {
+    return;
+  }
+  if (refs.audio.classList.contains("active")) {
+    refs.audio.pause();
+    refs.audio.classList.remove("active");
+  }
+  for (let i = 0; i < musics.length; i++) {
+    if (musics[i].id == elem.id) {
+      refs.audio.src = musics[i].src;
+      refs.image.src = musics[i].image;
+      refs.name.textContent = musics[i].name;
+      refs.audio.dataset.id = musics[i].id
+      break;
+    }
   }
 }
-}
 
-function addMusicInList(musics){
-const musicList = [];
-musics.forEach(elem => {
-  const music = `<li class="music" id="${elem.id}">
+function addMusicInList(musics) {
+  const musicList = [];
+  musics.forEach(elem => {
+    const music = `<li class="music" id="${elem.id}">
 <img class="imgList" src="${elem.image}" alt="">
  <p class="nameList">${elem.name}</p>
  </li>`;
- musicList.push(music);
-});
+    musicList.push(music);
+  });
   refs.list.insertAdjacentHTML("beforeend", musicList.join(""));
 }
 
