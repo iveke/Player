@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    background-color: #131316;
+}
 *:hover {
     transition: all 300ms;
 }
@@ -22,7 +24,7 @@
     display: flex;
     align-items: center;
     background-color: #131316;
-    position: fixed;
+    position: absolute;
     top: 0;
 }
 
@@ -120,7 +122,7 @@
     width: 200px;
     height: 30px;
     margin: 0 auto;
-    border: 2px solid black;
+    border: 2px solid rgb(183, 183, 183);
     border-radius: 10px;
     overflow: hidden;
 }
@@ -214,7 +216,7 @@ p {
 .list {
     padding: 10px 0;
     background-color: #131316;
-    height: 500px;
+    /* height: 500px; */
     width: 50%;
     color: #fff;
     display: flex;
@@ -224,6 +226,9 @@ p {
 
 .playlist {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .activeMusic {
@@ -257,3 +262,50 @@ p {
 /* .music:hover {
     background-color: #262622;
 } */
+
+@media (max-width: 690px) {
+    .wrapper {
+        width: 320px;
+    }
+    .header{
+        width: 320px;
+        margin: 0 auto;
+        padding: 0 5px;
+    }
+    .navbar{
+        width: 40px;
+        margin: 0 auto;
+        background-image: url(./image/icons8-menu-40.png);
+        background-repeat: no-repeat;
+        margin: auto;
+    }
+    .navigation{
+        display: none;
+    }
+    .header_search{
+        width: 175px;
+    }
+    .header_input{
+        width: 120px;
+    }
+    .search{
+        width: 50px;
+    }
+    .account{
+        width: 60px;
+        margin: 0 2px;
+    }
+    .username{
+        width: 60px;
+    }
+    .main{
+        flex-direction: column;
+    }
+    .player{
+        width: 320px;
+    }
+    .list{
+        width: 320px;
+    
+    }
+}
