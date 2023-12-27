@@ -59,12 +59,14 @@ function chooseMusic(e) {
     return;
   }
   if (refs.audio.dataset.id == elem.id) {
+    startAudio(refs.btns.querySelector(".btn-js"));
     return;
   }
   if (refs.audio.classList.contains("active")) {
     refs.audio.pause();
     refs.audio.classList.remove("active");
   }
+
   for (let i = 0; i < musics.length; i++) {
     if (musics[i].id == elem.id) {
       refs.audio.src = musics[i].src;
