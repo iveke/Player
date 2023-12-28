@@ -2,6 +2,7 @@ import { refs } from "./refs.js";
 import { musics } from "./script.js";
 import { setTime, setProgres } from "./time.js";
 import { startAudio } from "./startAudio.js";
+import { changeMusic } from "./script.js";
 let lastActiveMusicId = 0;
 
 
@@ -13,16 +14,10 @@ export function next() {
     for (let i = 0; i < musics.length; i++) {
         if (refs.audio.dataset.id == musics[i].id) {
             if (i + 1 != musics.length) {
-                refs.audio.src = musics[i + 1].src;
-                refs.image.src = musics[i + 1].image;
-                refs.name.textContent = musics[i + 1].name;
-                refs.audio.dataset.id = musics[i + 1].id;
+                changeMusic(musics[i + 1])
                 return;
             }
-            refs.audio.src = musics[0].src;
-            refs.image.src = musics[0].image;
-            refs.name.textContent = musics[0].name;
-            refs.audio.dataset.id = musics[0].id;
+            changeMusic(musics[0])
         }
     }
 }
@@ -37,16 +32,10 @@ export function prev() {
         if (refs.audio.dataset.id == musics[i].id) {
             if (i == 0) {
                 const l = musics.length - 1;
-                refs.audio.src = musics[l].src;
-                refs.image.src = musics[l].image;
-                refs.name.textContent = musics[l].name;
-                refs.audio.dataset.id = musics[l].id;
+                changeMusic(musics[l])
                 return;
             }
-            refs.audio.src = musics[i - 1].src;
-            refs.image.src = musics[i - 1].image;
-            refs.name.textContent = musics[i - 1].name;
-            refs.audio.dataset.id = musics[i - 1].id;
+            changeMusic(musics[i - 1]);
         }
     }
 }

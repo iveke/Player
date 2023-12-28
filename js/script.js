@@ -43,10 +43,10 @@ refs.searchBtn.addEventListener("click", searchMusic);
 
 function searchMusic() {
   const value = refs.search.value;
-  console.log(value);
   musics.forEach(elem => {
     if (elem.name == value) {
-      return;
+      console.log(elem.name);
+
     }
 
   })
@@ -54,11 +54,11 @@ function searchMusic() {
 
 
 function chooseMusic(e) {
-  const elem = e.target;
-  if (!elem.classList.contains("music")) {
+  const selectElem = e.target;
+  if (!selectElem.classList.contains("music")) {
     return;
   }
-  if (refs.audio.dataset.id == elem.id) {
+  if (refs.audio.dataset.id == selectElem.id) {
     startAudio(refs.btns.querySelector(".btn-js"));
     return;
   }
@@ -68,14 +68,18 @@ function chooseMusic(e) {
   }
 
   for (let i = 0; i < musics.length; i++) {
-    if (musics[i].id == elem.id) {
-      refs.audio.src = musics[i].src;
-      refs.image.src = musics[i].image;
-      refs.name.textContent = musics[i].name;
-      refs.audio.dataset.id = musics[i].id
+    if (musics[i].id == selectElem.id) {
+      changeMusic(musics[i]);
       break;
     }
   }
+}
+
+ export function changeMusic(elem) {
+  refs.audio.src = elem.src;
+  refs.image.src = elem.image;
+  refs.name.textContent = elem.name;
+  refs.audio.dataset.id = elem.id;
 }
 
 function addMusicInList(musics) {
