@@ -2,6 +2,7 @@ import { refs } from "./refs.js";
 import { startAudio } from "./startAudio.js";
 import { updateTime, changeCurrentTime } from "./time.js";
 import { next, prev, updateAudio } from "./changeAudio.js";
+import { chooseMusic , changeMusic} from "./changeAudio.js";
 
 export const musics = [
   {
@@ -32,7 +33,7 @@ document.addEventListener("keyup", (e) => {
     return prev();
   }
 });
-document.addEventListener("load", addMusicInList(musics));
+window.addEventListener("load", addMusicInList(musics));
 refs.btns.addEventListener("click", click);
 refs.audio.addEventListener("timeupdate", updateTime);
 refs.audio.addEventListener("loadeddata", updateAudio);
@@ -52,34 +53,14 @@ function searchMusic() {
 }
 
 
-function chooseMusic(e) {
-  const selectElem = e.target;
-  if (!selectElem.classList.contains("music")) {
-    return;
-  }
-  if (refs.audio.dataset.id == selectElem.id) {
-    startAudio(refs.btns.querySelector(".btn-js"));
-    return;
-  }
+export function checkActive() {
   if (refs.audio.classList.contains("active")) {
     refs.audio.pause();
     refs.audio.classList.remove("active");
   }
-
-  for (let i = 0; i < musics.length; i++) {
-    if (musics[i].id == selectElem.id) {
-      changeMusic(musics[i]);
-      break;
-    }
-  }
 }
 
- export function changeMusic(elem) {
-  refs.audio.src = elem.src;
-  refs.image.src = elem.image;
-  refs.name.textContent = elem.name;
-  refs.audio.dataset.id = elem.id;
-}
+
 
 function addMusicInList(musics) {
   const musicList = [];

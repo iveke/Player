@@ -2,15 +2,13 @@ import { refs } from "./refs.js";
 import { musics } from "./script.js";
 import { setTime, setProgres } from "./time.js";
 import { startAudio } from "./startAudio.js";
-import { changeMusic } from "./script.js";
+import { checkActive } from "./script.js";
+
 let lastActiveMusicId = 0;
 
 
 export function next() {
-    if (refs.audio.classList.contains("active")) {
-        refs.audio.pause();
-        refs.audio.classList.remove("active");
-    }
+    checkActive();
     for (let i = 0; i < musics.length; i++) {
         if (refs.audio.dataset.id == musics[i].id) {
             if (i + 1 != musics.length) {
@@ -23,10 +21,7 @@ export function next() {
 }
 
 export function prev() {
-    if (refs.audio.classList.contains("active")) {
-        refs.audio.pause();
-        refs.audio.classList.remove("active");
-    }
+    checkActive();
 
     for (let i = 0; i < musics.length; i++) {
         if (refs.audio.dataset.id == musics[i].id) {
@@ -39,22 +34,46 @@ export function prev() {
         }
     }
 }
-//доробити функціонаю коли якась музика активна щоб і в плейлисту цей трек позначався як активний типу іншим кольором
-export function updateAudio(e){
+
+export function chooseMusic(e) {
+    const selectElem = e.target;
+    if (!selectElem.classList.contains("music")) {
+        return;
+    }
+    if (refs.audio.dataset.id == selectElem.id) {
+        startAudio(refs.btns.querySelector(".btn-js"));
+        return;
+    }
+    checkActive();
+
+    for (let i = 0; i < musics.length; i++) {
+        if (musics[i].id == selectElem.id) {
+            changeMusic(musics[i]);
+            break;
+        }
+    }
+}
+
+export function updateAudio(e) {
     setProgres();
     const btn = e.target.parentNode.querySelector(".btn-js");
     startAudio(btn);
     setTime(e.target.duration, refs.finish);
-    
-    if(lastActiveMusicId != 0){
+
+    if (lastActiveMusicId != 0) {
         document.getElementById(lastActiveMusicId).classList.remove("activeMusic");
     }
-   
     musics.forEach(elem => {
-    if(refs.audio.dataset.id == elem.id){
-        const musa = document.getElementById(elem.id);
-        musa.classList.add("activeMusic");
-        lastActiveMusicId = elem.id;
-    }
+        if (refs.audio.dataset.id == elem.id) {
+            const musa = document.getElementById(elem.id);
+            musa.classList.add("activeMusic");
+            lastActiveMusicId = elem.id;
+        }
     })
+}
+export function changeMusic(elem) {
+    refs.audio.src = elem.src;
+    refs.image.src = elem.image;
+    refs.name.textContent = elem.name;
+    refs.audio.dataset.id = elem.id;
 }
