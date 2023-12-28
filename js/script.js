@@ -45,8 +45,7 @@ function searchMusic() {
   const value = refs.search.value;
   musics.forEach(elem => {
     if (elem.name == value) {
-      console.log(elem.name);
-
+      changeMusic(elem);
     }
 
   })
