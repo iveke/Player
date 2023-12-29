@@ -1,68 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <link type="image/png" sizes="32x32" rel="icon" href=".../icons8-menu-32.png">
-    <title>Player</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="header">
-        <div class="navbar">
-          <ul class="navigation">
-            <li>Home</li>
-            <li>Top</li>
-            <li>News</li>
-            <li>Favorite</li>
-          </ul>
-        </div>
-        <div class="header_search">
-          <input class="header_input" id="inputSearch" type="text" placeholder="enter name music">
-          <button class="search">Search</button>
-        </div>
-        <div class="account">
-          <img class="logo" src="./image/Person_icon_(the_Noun_Project_2817719).svg.png" alt="">
-          <p class="username">username</p>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <link type="image/png" sizes="32x32" rel="icon" href=".../icons8-menu-32.png">
+  <title>Player</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <div class="navbar">
+        <ul class="navigation">
+          <li>Home</li>
+          <li>Top</li>
+          <li>News</li>
+          <li>Favorite</li>
+        </ul>
       </div>
-      <div class="main">
-        <div class="player">
-          <div class="card">
-            <div class="figure">
-              <img class="img" src="./image/maxresdefault.jpg" alt="hello" />
-              <p class="name">Stronger</p>
-            </div>
-            <div class="functional">
-              <div class="time-duration">
-                <p class="start">0:00</p>
-                <div class="crossbar">
-                  <div class="progress"></div>
-                </div>
-                <p class="finish">5:12</p>
+      <div class="header_search">
+        <input class="header_input" id="inputSearch" type="text" placeholder="enter name music">
+        <button class="search">Search</button>
+      </div>
+      <div class="account">
+        <img class="logo" src="./image/Person_icon_(the_Noun_Project_2817719).svg.png" alt="">
+        <p class="username">username</p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="player">
+        <div class="card">
+          <div class="figure">
+            <img class="img" src="./image/maxresdefault.jpg" alt="hello" />
+            <p class="name">Stronger</p>
+          </div>
+          <div class="functional">
+            <div class="time-duration">
+              <p class="start">0:00</p>
+              <div class="crossbar">
+                <div class="progress"></div>
               </div>
-              <div class="buttons">
-                <button class="btnSlide prev">Prev</button>
-                <button class="button btn-js">Play</button>
-                <button class="btnSlide next">Next</button>
-              </div>
-              <audio data-id="3" class="audio" src="./audio/Stronger.mp3" >
+              <p class="finish">5:12</p>
             </div>
+            <div class="buttons">
+              <button class="btnSlide prev">Prev</button>
+              <button class="button btn-js">Play</button>
+              <button class="btnSlide next">Next</button>
+            </div>
+            <audio data-id="3" class="audio" src="./audio/Stronger.mp3">
           </div>
         </div>
-        <div class="list">
-          <h2>NamePlaylist</h2>
-          <ul class="playlist">
-        
-          </ul>
-        </div>
-        
       </div>
-      
-      
+      <div class="list">
+        <h2>NamePlaylist</h2>
+        <ul class="playlist">
+
+        </ul>
+      </div>
     </div>
-    <script type="module" src="./js/script.js"></script>
-  </body>
+    <div class="footer">
+      <h2>Contacs</h2>
+      <div class="info">
+        <ul class="socialNetwork">
+          <li><a href="https://twitter.com/IvanTkach05">X</a> :  @IvanTkach05</li>
+          <li><a href="#">Telegram</a>  :  @TkachKalach</li>
+          <li><a href="https://www.instagram.com/tkach_kalach/?hl=ua">Instagram</a>  :  tkach_kalach</li>
+          <li><a href="#">Email</a>  :  iven.tkachenkoi@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- <script type="module" src="./js/script.js"></script> -->
+</body>
+
 </html>
