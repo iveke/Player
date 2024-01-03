@@ -23,6 +23,18 @@ export const musics = [
     src: "./audio/Stronger.mp3",
     name: "Stronger",
   },
+  {
+    id: 4, 
+    image: "./image/moulaga.jpg",
+    src: "./audio/Moulaga.mp3" ,
+    name: "Moulaga"
+  },
+  {
+    id: 5, 
+    image: "./image/JingleBellsUa.jpg",
+    src: "./audio/JingleBells.mp3",
+    name: "JingleBellsUa"
+  }
 ];
 
 document.addEventListener("keyup", (e) => {

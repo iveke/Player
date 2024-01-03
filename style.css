@@ -294,22 +294,10 @@ p{
     pointer-events: none;
 }
 
-.footer {
-    max-width: 100%;
-    height: 100px;
-    position: absolute;
-    bottom: 0;
-    background-color: #131316;
-    color: #fff;
+.footer{
+    width: 100%;
+    background-color: #6b6b6b;
 }
-.info{
-    margin-top: 10px;
-}
-.socialNetwork > li > a{
-    color: #fff;
-    text-decoration: none;
-}
-
 
 /* .music:hover {
     background-color: #262622;
