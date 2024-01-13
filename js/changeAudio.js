@@ -56,8 +56,7 @@ export function chooseMusic(e) {
 
 export function updateAudio(e) {
     setProgres();
-    const btn = e.target.parentNode.querySelector(".btn-js");
-    startAudio(btn);
+    startAudio(refs.btns.querySelector(".btn-js"));
     setTime(e.target.duration, refs.finish);
 
     if (lastActiveMusicId != 0) {

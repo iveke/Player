@@ -20,7 +20,7 @@ export function setTime(time, elem) {
 export function updateTime(e) {
     if (refs.audio.currentTime == refs.audio.duration) {
         refs.audio.classList.remove("active");
-        e.target.parentNode.querySelector(".btn-js").textContent = "Play";
+        refs.btns.querySelector(".btn-js").textContent = "Play";
         refs.audio.pause();
         next()
     }
@@ -29,9 +29,9 @@ export function updateTime(e) {
 
 export function changeCurrentTime(e) {
     if (!refs.audio.classList.contains("active")) {
-      refs.audio.classList.add("active");
-      refs.btns.querySelector(".btn-js").textContent = "Pause";
-      refs.audio.play();
+        refs.audio.classList.add("active");
+        refs.btns.querySelector(".btn-js").textContent = "Pause";
+        refs.audio.play();
     }
     const left = e.target.getBoundingClientRect().left;
     const x = e.clientX;
@@ -40,4 +40,4 @@ export function changeCurrentTime(e) {
     const oneSecondInPx = refs.crossbar.clientWidth / refs.audio.duration;
     const time = width / oneSecondInPx;
     refs.audio.currentTime = time;
-  }
+}
