@@ -5,8 +5,8 @@ export const refs = {
     btns: document.querySelector(".buttons"),
     start: document.querySelector(".start"),
     finish: document.querySelector(".finish"),
-    name: document.querySelector(".name"),
-    image: document.querySelector(".img"),
+    name: document.querySelectorAll(".name-js"),
+    image: document.querySelectorAll(".img-js"),
     list: document.querySelector(".playlist"),
     search: document.querySelector("#inputSearch"),
     searchBtn: document.querySelector(".search")

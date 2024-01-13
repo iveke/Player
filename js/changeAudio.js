@@ -72,7 +72,13 @@ export function updateAudio(e) {
 }
 export function changeMusic(elem) {
     refs.audio.src = elem.src;
-    refs.image.src = elem.image;
-    refs.name.textContent = elem.name;
+    console.log(refs.image)
+    refs.image.forEach((img) => {
+        img.src = elem.image;
+    });
+    // refs.image.src = elem.image;
+    refs.name.forEach(n => {n.textContent = elem.name});
+    // refs.name.textContent = elem.name;
     refs.audio.dataset.id = elem.id;
+
 }
