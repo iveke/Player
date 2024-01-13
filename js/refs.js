@@ -9,5 +9,7 @@ export const refs = {
     image: document.querySelectorAll(".img-js"),
     list: document.querySelector(".playlist"),
     search: document.querySelector("#inputSearch"),
-    searchBtn: document.querySelector(".search")
+    searchBtn: document.querySelector(".search"),
+    burgemenu: document.querySelector(".burgemenu"),
+    navbar: document.querySelector(".navbar")
 }

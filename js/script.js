@@ -2,7 +2,7 @@ import { refs } from "./refs.js";
 import { startAudio } from "./startAudio.js";
 import { updateTime, changeCurrentTime } from "./time.js";
 import { next, prev, updateAudio } from "./changeAudio.js";
-import { chooseMusic , changeMusic} from "./changeAudio.js";
+import { chooseMusic, changeMusic } from "./changeAudio.js";
 
 export const musics = [
   {
@@ -24,13 +24,13 @@ export const musics = [
     name: "Stronger",
   },
   {
-    id: 4, 
+    id: 4,
     image: "./image/moulaga.jpg",
-    src: "./audio/Moulaga.mp3" ,
+    src: "./audio/Moulaga.mp3",
     name: "Moulaga"
   },
   {
-    id: 5, 
+    id: 5,
     image: "./image/JingleBellsUa.jpg",
     src: "./audio/JingleBells.mp3",
     name: "JingleBellsUa"
@@ -52,6 +52,14 @@ refs.audio.addEventListener("loadeddata", updateAudio);
 refs.crossbar.addEventListener("click", changeCurrentTime);
 refs.list.addEventListener("click", chooseMusic);
 refs.searchBtn.addEventListener("click", searchMusic);
+refs.burgemenu.addEventListener("click", (e) => {
+  if (refs.navbar.classList.contains("unvisible")) {
+    refs.navbar.classList.remove("unvisible");
+  } else {
+    refs.navbar.classList.add("unvisible");
+  }
+
+})
 
 
 function searchMusic() {
