@@ -1,7 +1,7 @@
 export const refs = {
     audio: document.querySelector(".audio"),
-    crossbar: document.querySelector(".crossbar"),
-    progress: document.querySelector(".progress"),
+    crossbar: document.querySelector(".crossbar-j"),
+    progress: document.querySelector(".progress-j"),
     btns: document.querySelector(".buttons"),
     start: document.querySelector(".start"),
     finish:document.querySelector(".finish"),
