@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background-color: #131316;
+    background-color: #030303;
     
 }
 
@@ -40,6 +40,7 @@ p{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
     color: #fff;
 }
 
@@ -48,12 +49,12 @@ p{
     list-style: none;
     padding: 10px 0;
     height: 40px;
-    width: 70px;
+    width: 100%;
 }
 
 .navigation li:hover {
     /* border: 1px solid #fff; */
-    background-color: #6b6b6b;
+    background-color: #252525;
 }
 .header {
     position:fixed;
@@ -210,42 +211,44 @@ p{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #131316;
+    /* background-color: #131316; */
 }
 
 .button {
     width: 50px;
     height: 50px;
     color: #fff;
-    background-color: #131316;
-    border: 2px solid black;
+    background-color: #212121;
+    border: 2px solid #212121;
     font-weight: bold;
+    font-size: 18px;
 }
 
-.button:hover {
+/* .button:hover {
     background-color: #262622;
 }
 
 .btnSlide:hover {
     background-color: #262622;
-}
+} */
 
 .btnSlide {
     width: 80px;
     height: 30px;
     color: #fff;
-    background-color: #131316;
-    border: 2px solid black;
+    background-color: #212121;
+    border: 2px solid #212121;
     font-weight: bold;
+    font-size: 18px;
 }
 
-.play {
+/* .play {
     margin: 0 auto;
     width: 50px;
     height: 20px;
     background-color: black;
     color: white;
-}
+} */
 
 
 /* p {
@@ -257,7 +260,6 @@ p{
 
 .list {
     padding: 10px 0;
-    background-color: #131316;
     /* height: 500px; */
     width: 50%;
     color: #fff;
@@ -307,14 +309,15 @@ p{
     bottom:0 ;
     width: 100%;
     height: 20vh;
-    background-color: #131316;
+    background-color: #212121;
 }
 .crossbar-j{
     position: relative;
     width: 100%;
-    height: 10vh;
+    height: 2vh;
     overflow: hidden;
     border: solid 1px  #76767686;
+    background-color: rgba(255,255,255,0.1);
 }
 .progress-j{
     position: absolute;
@@ -322,9 +325,10 @@ p{
     left: 0;
     height: 100%;
     pointer-events: none;
-    background-color: #262622;
+    background-color: #f00;
 }
 .footer-sub{
+    height: 18vh;
     display: flex ;
     align-items: center;
 }
