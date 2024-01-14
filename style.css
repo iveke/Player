@@ -98,6 +98,7 @@ p {
 .header_search {
     width: 65%;
     margin: 0 auto;
+    margin-left: 30px;
 }
 
 .header_input {
@@ -382,10 +383,9 @@ p {
         margin: 0 auto;
         padding: 0 5px;
     } */
-    .navigation {
+    .navbar{
         display: none;
     }
-
     .header_search {
         width: 65%;
     }
@@ -401,6 +401,9 @@ p {
     } */
 
     .main {
+        width: 100%;
+        display: flex;
+        justify-content: center;
         flex-direction: column;
     }
 
@@ -410,6 +413,5 @@ p {
 
     .list {
         width: 100%;
-
     }
 }
