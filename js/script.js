@@ -7,17 +7,23 @@ import * as fetchApi from "./api/index.js";
 
 console.log(fetchApi);
 async function tryFetch() {
-try {
-   const token = await fetchApi.getToken();
-  const data = await fetchApi.getArtist(token);
-  const album = await fetchApi.getAlbum(token);
-  return album;
-} catch (error) {
-  console.log(error, error.massage )
+  try {
+    const token = await fetchApi.getToken();
+    const data = await fetchApi.getArtist(token);
+    const album = await fetchApi.getAlbum(token);
+    const tracks = await fetchApi.getTraks(token);
+    return tracks;
+  } catch (error) {
+    console.log(error, error.massage);
+  }
 }
-}
-tryFetch().then(console.log());
+tryFetch().then((res) => {
+  procesingFetch(res);
+});
 
+function procesingFetch(res){
+console.log(res)
+}
 
 export const musics = [
   {
