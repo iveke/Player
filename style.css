@@ -66,7 +66,7 @@ p {
     height: 10vh;
     display: flex;
     align-items: center;
-    /* background-color: #131316; */
+    background-color: #131316;
     /* position: absolute;
     top: 0; */
 }
@@ -149,7 +149,6 @@ p {
     top: 10vh;
     right: 0;
     width: calc(100vw - 80px);
-    height: 70vh;
     display: flex;
 
 }
@@ -313,6 +312,9 @@ p {
     padding: 0 10px;
     user-select: none;
 }
+.music:hover{
+    background-color: #262622;
+}
 
 .imgList {
     width: 30px;
@@ -402,9 +404,9 @@ p {
 
     .main {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
+        display: block;
+        padding-bottom:  111px; 
+        z-index: -1;
     }
 
     .player {

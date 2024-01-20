@@ -3,6 +3,21 @@ import { startAudio } from "./startAudio.js";
 import { updateTime, changeCurrentTime } from "./time.js";
 import { next, prev, updateAudio } from "./changeAudio.js";
 import { chooseMusic, changeMusic } from "./changeAudio.js";
+import * as fetchApi from "./api/index.js";
+
+console.log(fetchApi);
+async function tryFetch() {
+try {
+   const token = await fetchApi.getToken();
+  const data = await fetchApi.getArtist(token);
+  const album = await fetchApi.getAlbum(token);
+  return album;
+} catch (error) {
+  console.log(error, error.massage )
+}
+}
+tryFetch().then(console.log());
+
 
 export const musics = [
   {
@@ -27,14 +42,14 @@ export const musics = [
     id: 4,
     image: "./image/moulaga.jpg",
     src: "./audio/Moulaga.mp3",
-    name: "Moulaga"
+    name: "Moulaga",
   },
   {
     id: 5,
     image: "./image/JingleBellsUa.jpg",
     src: "./audio/JingleBells.mp3",
-    name: "JingleBellsUa"
-  }
+    name: "JingleBellsUa",
+  },
 ];
 
 document.addEventListener("keyup", (e) => {
@@ -58,20 +73,16 @@ refs.burgemenu.addEventListener("click", (e) => {
   } else {
     refs.navbar.classList.add("unvisible");
   }
-
-})
-
+});
 
 function searchMusic() {
   const value = refs.search.value;
-  musics.forEach(elem => {
+  musics.forEach((elem) => {
     if (elem.name == value) {
       changeMusic(elem);
     }
-
-  })
+  });
 }
-
 
 export function checkActive() {
   if (refs.audio.classList.contains("active")) {
@@ -80,11 +91,9 @@ export function checkActive() {
   }
 }
 
-
-
 function addMusicInList(musics) {
   const musicList = [];
-  musics.forEach(elem => {
+  musics.forEach((elem) => {
     const music = `<li class="music" id="${elem.id}">
 <img class="imgList" src="${elem.image}" alt="">
  <p class="nameList">${elem.name}</p>
@@ -93,8 +102,6 @@ function addMusicInList(musics) {
   });
   refs.list.insertAdjacentHTML("beforeend", musicList.join(""));
 }
-
-
 
 function click(e) {
   const elem = e.target;
